@@ -112,7 +112,8 @@ main {
   margin: 0;
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* Show five items per row on larger viewports */
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .video-nav__list a {
@@ -182,10 +183,8 @@ main {
 }
 
 .video-card {
+  /* spacing for anchored scroll targets */
   scroll-margin-top: 140px;
-}
-
-.video-card {
   background: var(--card-bg);
   border-radius: 22px;
   box-shadow: var(--shadow);
