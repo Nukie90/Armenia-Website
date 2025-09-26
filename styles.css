@@ -1,0 +1,190 @@
+:root {
+  --flag-red: #d62c2c;
+  --flag-blue: #0437a2;
+  --flag-orange: #f2a104;
+  --ink: #1f1b2c;
+  --cream: #f7f3ea;
+  --card-bg: rgba(255, 255, 255, 0.86);
+  --shadow: 0 20px 40px rgba(10, 12, 31, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', 'Noto Serif Armenian', sans-serif;
+  background: radial-gradient(circle at 15% 15%, rgba(214, 44, 44, 0.5), transparent 55%),
+    radial-gradient(circle at 85% 10%, rgba(4, 55, 162, 0.45), transparent 60%),
+    radial-gradient(circle at 50% 120%, rgba(242, 161, 4, 0.5), transparent 55%),
+    var(--ink);
+  color: var(--cream);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.background-texture {
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.05) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.05) 75%);
+  background-size: 40px 40px;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  opacity: 0.4;
+  z-index: 0;
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  padding: 8rem 1.5rem 4rem;
+  text-align: center;
+}
+
+.hero__content {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.hero__tagline {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  border-radius: 999px;
+  background: linear-gradient(120deg, rgba(214, 44, 44, 0.9), rgba(4, 55, 162, 0.9), rgba(242, 161, 4, 0.9));
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--cream);
+  margin-bottom: 1.5rem;
+}
+
+.hero__title {
+  font-family: 'Noto Serif Armenian', serif;
+  font-size: clamp(2.8rem, 6vw, 4.75rem);
+  margin: 0 0 1rem;
+  letter-spacing: 0.08em;
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+}
+
+.hero__description {
+  margin: 0;
+  line-height: 1.7;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: rgba(247, 243, 234, 0.85);
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  padding: 0 1.5rem 6rem;
+}
+
+.gallery {
+  display: grid;
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.video-card {
+  scroll-margin-top: 140px;
+}
+
+.video-card {
+  background: var(--card-bg);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.video-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 30px 60px rgba(10, 12, 31, 0.3);
+}
+
+.video-frame {
+  position: relative;
+  padding-top: 56.25%;
+  background: linear-gradient(135deg, rgba(214, 44, 44, 0.3), rgba(4, 55, 162, 0.3));
+}
+
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-bottom: 6px solid rgba(242, 161, 4, 0.7);
+}
+
+.video-content {
+  padding: 1.75rem 1.75rem 2rem;
+  color: var(--ink);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+}
+
+.video-title {
+  font-family: 'Noto Serif Armenian', serif;
+  font-size: 1.35rem;
+  margin: 0 0 0.75rem;
+  color: var(--flag-blue);
+  letter-spacing: 0.04em;
+}
+
+.video-description {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: rgba(31, 27, 44, 0.8);
+}
+
+.footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 4rem 1.5rem 3rem;
+  color: rgba(247, 243, 234, 0.8);
+  font-family: 'Noto Serif Armenian', serif;
+}
+
+.footer__quote {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  border-top: 1px solid rgba(247, 243, 234, 0.2);
+  padding-top: 2rem;
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding-top: 6rem;
+  }
+
+  .video-card {
+    scroll-margin-top: 100px;
+  }
+
+  .video-content {
+    padding: 1.5rem;
+  }
+
+  .video-title {
+    font-size: 1.2rem;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
