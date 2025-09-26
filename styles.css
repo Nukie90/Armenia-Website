@@ -90,7 +90,11 @@ main {
   gap: 2.5rem;
   max-width: 1200px;
   margin: 0 auto;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.video-card {
+  scroll-margin-top: 140px;
 }
 
 .video-card {
@@ -168,11 +172,19 @@ main {
     padding-top: 6rem;
   }
 
+  .video-card {
+    scroll-margin-top: 100px;
+  }
+  
   .video-content {
     padding: 1.5rem;
   }
 
   .video-title {
     font-size: 1.2rem;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
   }
 }
